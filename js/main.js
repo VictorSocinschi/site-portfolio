@@ -127,9 +127,19 @@ ScrollReveal({
   duration: 2500,
   delay: 100,
 });
-ScrollReveal().reveal(".home-info h1", { delay: 500, origin: "left" });
-ScrollReveal().reveal(".home-img", { delay: 600, origin: "right" });
-ScrollReveal().reveal(".media-icons a", {
+ScrollReveal().reveal(".inner-title, .inner-second-title", {
+  opacity: 0,
+  delay: 500,
+});
+ScrollReveal().reveal(".home-info h1  , .about-img", {
+  delay: 500,
+  origin: "left",
+});
+ScrollReveal().reveal(".home-img, .description ", {
+  delay: 600,
+  origin: "right",
+});
+ScrollReveal().reveal(".media-icons a , .list-item", {
   delay: 700,
   origin: "bottom",
   interval: 200,

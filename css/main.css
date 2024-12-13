@@ -373,6 +373,7 @@ ul.nav-menu {
 
 .professional-list {
   display: flex;
+  flex-wrap: wrap;
   column-gap: 30px;
 }
 
@@ -1051,6 +1052,13 @@ ul.nav-menu {
     order: 3;
     flex-direction: row;
     gap: 40px;
+  }
+  .about-wrapper {
+    flex-wrap: wrap;
+    justify-self: center;
+  }
+  .professional-list {
+    flex-wrap: wrap;
   }
 }
 /* ========Media query max-width 980 px======== */
