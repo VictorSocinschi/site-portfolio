@@ -425,7 +425,7 @@ ul.nav-menu {
 }
 .education {
   min-width: 320px;
-  width: 32px;
+  width: 32%;
   transition: 0.3s linear;
 }
 .education .label {
@@ -612,11 +612,11 @@ ul.nav-menu {
   background: var(--bg-transparent-color);
   visibility: hidden;
   opacity: 0;
-  transition: 0.3s linear;
 }
 .service-modal.active {
   visibility: visible;
   opacity: 1;
+  transition: 0.3s linear;
 }
 .service-modal-body {
   max-width: 600px;
@@ -782,6 +782,7 @@ ul.nav-menu {
 .get-in-touch .contact-card {
   display: flex;
   align-items: flex-end;
+  flex-wrap: wrap;
   position: relative;
   width: 90%;
   padding: 50px;
@@ -1122,8 +1123,50 @@ ul.nav-menu {
   .about-group {
     text-align: center;
   }
+  .get-in-touch .contact-card {
+    width: 100%;
+    padding: 25px;
+  }
+  .client-details .swiper-slide {
+    flex-direction: column;
+  }
+  .contact-wrapper {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Media query 590px*/
+
+  @media (max-width: 768px) {
+    .contact-card h2 {
+      font-size: 40px;
+    }
+  }
+  .contact-card h3 {
+    font-size: 28px;
+  }
+  .contact-card h4 {
+    font-size: 18px;
+  }
+  .get-in-touch-link {
+    margin-bottom: 15px;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+  .second-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .second-row input {
+    width: 100%;
+  }
 }
 @media (max-width: 450px) {
+  .inner-title {
+    font-size: 50px;
+  }
   .about-group {
     text-align: left;
   }
@@ -1143,6 +1186,27 @@ ul.nav-menu {
   }
   .follow-group {
     align-items: flex-start;
+  }
+  .education,
+  .work-exp .experience-card {
+    min-width: 295px;
+  }
+  .skills-description {
+    min-width: 295px;
+  }
+  .service-modal-body h3,
+  .portfolio-modal-body h3 {
+    font-size: 25px;
+  }
+  .service-modal-body,
+  .portfolio-modal-body {
+    padding: 40px 15px 15px;
+  }
+  .contact-card h2 {
+    font-size: 35px;
+  }
+  .contact-right p span {
+    display: inline;
   }
 }
 

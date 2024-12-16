@@ -66,6 +66,7 @@ const modalCloseBtn = document.querySelectorAll(".modal-close-btn");
 
 const modal = function (modalClick) {
   serviceModal[modalClick].classList.add("active");
+  disableScrollReveal();
 };
 
 learnMoreBtn.forEach((button, i) => {
@@ -79,8 +80,110 @@ modalCloseBtn.forEach((button) => {
     serviceModal.forEach((modal) => {
       modal.classList.remove("active");
     });
+    enableScrollReveal();
   });
 });
+//initial ScrollReveal
+const revealConfiguration = [
+  {
+    selector: ".inner-title, .inner-second-title",
+    config: {
+      opacity: 0,
+      delay: 500,
+    },
+  },
+  {
+    selector: ".home-info h1  , .about-img , .contact-card .title , ",
+    config: {
+      delay: 500,
+      origin: "left",
+    },
+  },
+  {
+    selector: ".home-img, .description ",
+    config: {
+      delay: 600,
+      origin: "right",
+    },
+  },
+  {
+    selector:
+      ".skills-description , .work-exp-title, .services-description , .contact-right p , .contact-left h2 ",
+    config: {
+      delay: 600,
+      origin: "top",
+    },
+  },
+  {
+    selector: ".media-icons a , .list-item , .inner-info-link ",
+    config: {
+      delay: 700,
+      origin: "bottom",
+      interval: 300,
+    },
+  },
+  {
+    selector: ".education",
+    config: {
+      delay: 600,
+      origin: "bottom",
+      interval: 300,
+    },
+  },
+  {
+    selector:
+      ".work-exp, .experience-card , .services-container, .portfolio-img-card , .contact-list li , .first-row ,.second-row , .third-row",
+    config: {
+      origin: "top",
+      delay: 600,
+      interval: 300,
+    },
+  },
+  {
+    selector: ".home-info h3, .home-info p , .inner-info-link",
+    config: {
+      delay: 600,
+      origin: "left",
+    },
+  },
+];
+
+function initializeScrollReveal() {
+  window.sr = ScrollReveal({
+    reset: true,
+    distance: "60px",
+    duration: 2500,
+    delay: 100,
+  });
+  revealConfiguration.forEach(({ selector, config }) => {
+    sr.reveal(selector, config);
+  });
+}
+initializeScrollReveal();
+
+//disable ScrollReveal
+function disableScrollReveal() {
+  sr.clean(); // Очистка элементов от анимаций
+  document.documentElement.style.overflowY = "hidden";
+  document.body.style.overflowY = "hidden";
+  revealConfiguration.forEach(({ selector }) => {
+    document.querySelectorAll(selector).forEach((el) => {
+      el.style.transform = "";
+      el.style.opacity = "";
+      el.style.transition = "";
+      el.style.visibility = "";
+    });
+  });
+  console.log("function off");
+}
+// Enable ScrollReveal
+
+function enableScrollReveal() {
+  document.documentElement.style.overflowY = "";
+  document.body.style.overflowY = "";
+  initializeScrollReveal();
+  console.log("function work");
+}
 
 //Portfolio section - Modal
 const portfolioModals = document.querySelectorAll(".portfolio-modal");
@@ -89,6 +192,7 @@ const portfolioCloseBtn = document.querySelectorAll(".portfolio-close-btn");
 
 const portfolioModal = function (modalClick) {
   portfolioModals[modalClick].classList.add("active");
+  disableScrollReveal();
 };
 
 imgCard.forEach((button, i) => {
@@ -102,6 +206,7 @@ portfolioCloseBtn.forEach((button) => {
     portfolioModals.forEach((modalView) => {
       modalView.classList.remove("active");
     });
+    enableScrollReveal();
   });
 });
 
@@ -119,32 +224,4 @@ let swiper = new Swiper(".client-swiper", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-});
-
-ScrollReveal({
-  reset: true,
-  distance: "60px",
-  duration: 2500,
-  delay: 100,
-});
-ScrollReveal().reveal(".inner-title, .inner-second-title", {
-  opacity: 0,
-  delay: 500,
-});
-ScrollReveal().reveal(".home-info h1  , .about-img", {
-  delay: 500,
-  origin: "left",
-});
-ScrollReveal().reveal(".home-img, .description ", {
-  delay: 600,
-  origin: "right",
-});
-ScrollReveal().reveal(".media-icons a , .list-item", {
-  delay: 700,
-  origin: "bottom",
-  interval: 200,
-});
-ScrollReveal().reveal(".home-info h3, .home-info p , .inner-info-link", {
-  delay: 600,
-  origin: "left",
 });
