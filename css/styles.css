@@ -220,6 +220,7 @@ ul.nav-menu {
   align-items: center;
   gap: 60px;
 }
+
 .media-icons {
   display: flex;
   flex-direction: column;
