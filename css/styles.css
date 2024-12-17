@@ -146,7 +146,18 @@ body {
   visibility: visible;
   right: 20px;
 }
-
+/*=======Scroll bar ========*/
+::-webkit-scrollbar {
+  width: 10px;
+  background: var(--scroll-bar-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb-color);
+}
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 20px;
+  background: var(--scroll-thumb-hover-color);
+}
 main {
   flex: 1;
 }
